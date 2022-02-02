@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Scrapping with Falsk</title>
+  <style>
+    section{
+      display:grid;
+      gap: 20px;
+      grid-template-columns: repeat(4,1fr)
+    }
+  </style>
+</head>
+<body>
+  <h1>Search Results</h1>
+  <h3> Found {{resultNumber}} results for: {{searching}} </h3>
+  <a href="/export?word={{searching}}">Export to CSV</a>
+  <section>
+    <h4>TITLE</h4>
+    <h4>COMPANY</h4>
+    <h4>LOCATION</h4>
+    <h4>LINK</h4>
+    {% for job in jobs %}
+        <span>{{job.title}}</span>
+        <span>{{job.company}}</span>
+        <span>{{job.location}}</span>
+        <a href="{{job.link}}" target="_blank"> Apply</a>
+    {% endfor %}
+  </section>
+</body>
+</html>
